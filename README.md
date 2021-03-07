@@ -3,9 +3,9 @@
 This python script is a working example to execute 
 [scalping trading](https://www.investopedia.com/articles/trading/05/scalping.asp) 
 algorithm for [Alpaca API](https://alpaca.markets). This algorithm uses real time order updates
-as well as minute level bar streaming from Polygon via Websockets (see the
-[document](https://docs.alpaca.markets/market-data/#consolidated-market-data) for
-Polygon data access).
+as well as minute level bar streaming from Alpaca Data API V2 via Websockets (see the
+[document](https://alpaca.markets/docs/api-documentation/api-v2/market-data/alpaca-data-api-v2/) for
+Subscription Plans).
 One of the contributions of this example is to demonstrate how to handle
 multiple stocks concurrently as independent routine using Python's
 [asyncio](https://docs.python.org/3/library/asyncio.html).
@@ -56,7 +56,7 @@ indifinitely until it fills, but this may cause loss more than the accumulated p
 on the market situation. This is where you can improve the risk control beyond this example.
 
 The buy signal is calculated as soon as a minute bar arrives, which typically happen about 4 seconds
-after the top of every minute (this is Polygon's behavior for minute bar streaming).
+after the top of every minute.
 
 This example liquidates all watching positions with market order at the end of market hours (03:55pm ET).
 
