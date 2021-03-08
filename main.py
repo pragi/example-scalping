@@ -51,6 +51,7 @@ class ScalpAlgo:
         if self._position is not None:
             if self._order is None:
                 self._state = 'TO_SELL'
+                self._submit_sell() # we should trigger sell, otherwise the stock is stuck in TO_SELL state until EOD
             else:
                 self._state = 'SELL_SUBMITTED'
                 if self._order.side != 'sell':
